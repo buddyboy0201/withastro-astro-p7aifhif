@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Marquee from '../../components/Marquee.astro';
+import BurgundyBreak from '../../components/BurgundyBreak.astro';
+import { readdir, readFile } from 'fs/promises';
+import { join } from 'path';
+
+// Load all published case studies
+const workDir = join(process.cwd(), 'src/content/work');
+const files = await readdir(workDir);
+const caseStudies = await Promise.all(
+  files
+    .filter(f => f.endsWith('.json'))
+    .map(async (f) => {
+      const raw = await readFile(join(workDir, f), 'utf-8');
+      return JSON.parse(raw);
+    })
+).then(all => all.filter(c => c.published));
+---
+
+<BaseLayout
+  title="Our Work"
+  description="Explore holistic success stories and brand transformations cultivated by Wellstead Marketing."
+  activeNav="work"
+>
+  <Hero subtitle="The Stories Behind The Growth" title="Client\nTransformations" />
+
+  <Marquee text="HOLISTIC GROWTH <span>+</span> BRAND TRANSFORMATIONS <span>+</span> STORY-DRIVEN SUCCESS <span>+</span> HOLISTIC GROWTH <span>+</span> BRAND TRANSFORMATIONS <span>+</span> STORY-DRIVEN SUCCESS <span>+</span> HOLISTIC GROWTH" />
+
+  <div class="container story-feed">
+    {caseStudies.map((study) => (
+      <article class="story-card">
+        <div class="story-header">
+          <div>
+            <span class="client-industry">{study.industry}</span>
+            <h2 class="client-name">{study.clientName}</h2>
+          </div>
+        </div>
+
+        {study.heroImage
+          ? <img src={study.heroImage} alt={study.clientName} class="story-hero-img" />
+          : (
+            <div class="story-hero-placeholder">
+              <span>[ Insert Contextual/Environmental Photo Here ]</span>
+            </div>
+          )
+        }
+
+        <div class="narrative-grid">
+          <div class="narrative-column">
+            <h4>{study.setupHeading}</h4>
+            <p>{study.setupBody}</p>
+          </div>
+          <div class="narrative-column">
+            <h4>{study.catalystHeading}</h4>
+            <p>{study.catalystBody}</p>
+          </div>
+          <div class="narrative-column">
+            <h4>{study.resolutionHeading}</h4>
+            <p>{study.resolutionBody}</p>
+          </div>
+        </div>
+
+        <div class="impact-statement">"{study.impactStatement}"</div>
+      </article>
+    ))}
+  </div>
+
+  <BurgundyBreak
+    heading="Ready to author the next chapter of your business?"
+    buttonText="Start The Conversation"
+    buttonUrl="/contact/"
+  />
+</BaseLayout>

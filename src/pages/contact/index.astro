@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Marquee from '../../components/Marquee.astro';
+import content from '../../content/pages/contact.json';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Start the conversation with Wellstead Marketing."
+  activeNav="contact"
+  footerCtaText="BACK TO<br>HOME"
+  footerCtaUrl="/"
+>
+  <Hero subtitle={content.heroSubtitle} title={content.heroTitle} />
+
+  <Marquee text={content.marqueeText} />
+
+  <section class="section-pad" style="padding: 100px 0 150px;">
+    <div class="container split-section">
+
+      <div class="sticky-side">
+        <div class="editorial-heading">
+          {content.introLabel}
+          <span>{content.introHeading}</span>
+        </div>
+        <p style="font-size: 1.1rem; max-width: 350px; font-weight: 300; margin-top: 20px;">
+          {content.introBody}
+        </p>
+        <div class="contact-info-block">
+          <div class="contact-detail">
+            <h4>EMAIL</h4>
+            <a href={`mailto:${content.email}`}>{content.email}</a>
+          </div>
+          <div class="contact-detail">
+            <h4>PHONE</h4>
+            <p>{content.phone}</p>
+          </div>
+          <div class="contact-detail">
+            <h4>LOCATION</h4>
+            <p set:html={content.location.replace('\n', '<br>')} />
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-side">
+        <form
+          class="contact-form"
+          name="strategy-inquiry"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <p style="display:none;">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="first_name" required placeholder="Jane" />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="last_name" required placeholder="Doe" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="jane@company.com" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company / Organization Name</label>
+            <input type="text" id="company" name="company" required placeholder="Your Business" />
+          </div>
+
+          <div class="form-group">
+            <label for="interest">Primary Interest</label>
+            <select id="interest" name="primary_interest">
+              <option>Local Lead Generation</option>
+              <option>Web Design &amp; Foundations</option>
+              <option>Public Relations &amp; Institutional Comms</option>
+              <option>Meta Advertising</option>
+              <option>Integrated Marketing Strategy</option>
+              <option>Other / I need strategic guidance</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Tell us about your current challenges, pipeline goals, and what you are hoping to achieve..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-sleek" style="padding: 20px 40px; font-size: 1rem;">
+            Submit Inquiry
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

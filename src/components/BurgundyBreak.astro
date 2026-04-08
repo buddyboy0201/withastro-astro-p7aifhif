@@ -1,0 +1,17 @@
+---
+interface Props {
+  heading: string;
+  buttonText?: string;
+  buttonUrl?: string;
+}
+const { heading, buttonText, buttonUrl } = Astro.props;
+---
+
+<section class="burgundy-break">
+  <div class="container">
+    <h2>{heading}</h2>
+    {buttonText && buttonUrl && (
+      <a href={buttonUrl} class="btn-sleek">{buttonText}</a>
+    )}
+  </div>
+</section>

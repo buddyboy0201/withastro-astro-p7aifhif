@@ -1,0 +1,15 @@
+{
+  "name": "wellstead-marketing",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@tinacms/cli": "^1.5.47",
+    "tinacms": "^1.5.25",
+    "astro": "^4.0.0"
+  }
+}

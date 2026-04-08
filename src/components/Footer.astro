@@ -1,0 +1,30 @@
+---
+interface Props {
+  ctaText?: string;
+  ctaUrl?: string;
+}
+const { ctaText = "LET'S<br>CONNECT", ctaUrl = '/contact/' } = Astro.props;
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <a href={ctaUrl} class="footer-huge-cta" set:html={ctaText} />
+      <div class="footer-info">
+        <p style="color: var(--cta-amber); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+          Wellstead Marketing
+        </p>
+        <p>contact@wellsteadmarketing.com</p>
+        <p>Mon – Fri: 08h30 - 18h00</p>
+        <div style="margin-top: 30px; display: flex; gap: 20px;">
+          <a href="#" style="text-transform: uppercase; font-size: 0.85rem; font-weight: 700; color: var(--bg-light-grey);">LinkedIn</a>
+          <a href="#" style="text-transform: uppercase; font-size: 0.85rem; font-weight: 700; color: var(--bg-light-grey);">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(234, 234, 234, 0.5);">
+      <span>&copy; 2026 Wellstead Marketing</span>
+      <span>Privacy &amp; Legal</span>
+    </div>
+  </div>
+</footer>

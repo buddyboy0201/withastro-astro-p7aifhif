@@ -1,0 +1,18 @@
+---
+interface Props {
+  subtitle: string;
+  title: string;
+  showCircleBtn?: boolean;
+}
+const { subtitle, title, showCircleBtn = false } = Astro.props;
+---
+
+<header class="hero">
+  <div class="container" style="position: relative;">
+    <span class="hero-subtitle">{subtitle}</span>
+    <h1 set:html={title.replace('\n', '<br>')} />
+    {showCircleBtn && (
+      <a href="/contact/" class="circle-btn">Initiate<br />Growth</a>
+    )}
+  </div>
+</header>

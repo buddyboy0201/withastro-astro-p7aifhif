@@ -1,0 +1,18 @@
+{
+  "heroSubtitle": "Integrated Digital Infrastructure",
+  "heroTitle": "Our\nCapabilities",
+  "marqueeText": "7 CORE PILLARS <span>+</span> UNAPOLOGETIC EXECUTION <span>+</span> MEASURABLE IMPACT <span>+</span> 7 CORE PILLARS <span>+</span> UNAPOLOGETIC EXECUTION <span>+</span> MEASURABLE IMPACT <span>+</span> 7 CORE PILLARS",
+  "introLabel": "THE BLUEPRINT",
+  "introHeading": "Execution Over Theory",
+  "introBody": "We do not offer a scattered menu of isolated services. We deploy a proven, 7-pillar architecture designed to identify your pipeline gaps, capture local demand, and scale your brand authority.",
+  "burgundyHeading": "We only build the infrastructure your specific pipeline requires.",
+  "services": [
+    { "id": "seo", "number": "01 /", "title": "SEO & AEO", "body": "Constructing a dominant search presence by answering the exact questions your buyers are asking. We shift the focus from vanity rankings to capturing high-intent local traffic ensuring that when prospects search for a solution, they find you first.", "capabilities": ["Answer Engine Optimization", "Local Maps Dominance", "Technical Site Architecture", "High-Intent Keyword Strategy"] },
+    { "id": "sem", "number": "02 /", "title": "Search Marketing", "body": "High-yield paid search funnels engineered to drive down acquisition costs and capture high-intent leads instantly. We bypass broad, wasteful campaigns to target the exact moments your prospects are ready to buy.", "capabilities": ["Google Ads Management", "Local Service Ads", "Conversion Tracking", "Competitor Conquesting"] },
+    { "id": "meta", "number": "03 /", "title": "Meta Advertising", "body": "Aggressive, targeted ad modeling across Facebook and Instagram to scale revenue predictably. By leveraging deep data analytics and rapid creative testing, we keep your brand front-and-center in the local feed.", "capabilities": ["Audience Modeling", "Rapid Creative Testing", "Retargeting Funnels", "Lead Form Optimization"] },
+    { "id": "pr", "number": "04 /", "title": "Public Relations", "body": "Strategic media placements and authority building. Rooted heavily in our extensive background in public health and institutional communications, we control your narrative and build an unshakable foundation of trust within the community.", "capabilities": ["Media Relations", "Institutional Communications", "Crisis Management", "Community Outreach"] },
+    { "id": "content", "number": "05 /", "title": "Brand Content", "body": "Premium, high-conversion visual and written assets that establish absolute market authority. From pillar video campaigns to authoritative copywriting, we produce content that educates prospects and crushes objections before the sales call.", "capabilities": ["Videography & Editing", "Authoritative Copywriting", "Social Media Assets", "Email Newsletter Deep-Dives"] },
+    { "id": "web", "number": "06 /", "title": "Web Design", "body": "Building high-converting digital foundations and modern storefronts that serve as the bedrock for all acquisition campaigns. If your website can't convert traffic into revenue, no amount of advertising will save it. We fix the foundation first.", "capabilities": ["Conversion Rate Optimization", "Mobile-First Architecture", "Landing Page Engineering", "Analytics Integration"] },
+    { "id": "lead-gen", "number": "07 /", "title": "Lead Generation", "body": "Hyper-targeted local customer acquisition strategies designed to drive immediate, tangible revenue in your specific market. This is where all the pillars converge to fill your pipeline with highly qualified, ready-to-buy prospects.", "capabilities": ["End-to-End Funnel Architecture", "CRM Integrations", "Automated Follow-ups", "Pipeline Reporting"] }
+  ]
+}

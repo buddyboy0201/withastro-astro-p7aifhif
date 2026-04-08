@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Marquee from '../../components/Marquee.astro';
+import BurgundyBreak from '../../components/BurgundyBreak.astro';
+import content from '../../content/pages/philosophy.json';
+---
+
+<BaseLayout
+  title="Our Philosophy"
+  description="The Wellstead Marketing philosophy: Total market capture, radical transparency, and infrastructure built for the entire adoption curve."
+  activeNav="philosophy"
+>
+  <Hero subtitle={content.heroSubtitle} title={content.heroTitle} />
+
+  <Marquee text={content.marqueeText} />
+
+  <!-- The Shift -->
+  <section class="section-pad">
+    <div class="container split-section">
+      <div class="sticky-side">
+        <div class="editorial-heading">
+          {content.shiftLabel}
+          <span set:html={content.shiftHeading.replace(' ', '<br>')} />
+        </div>
+      </div>
+      <div class="scroll-side">
+        <p class="large-paragraph" set:html={content.shiftLead.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace('\n', '<br>')} />
+        <div class="philosophy-block">
+          <p>{content.shiftBody1}</p>
+          <p>{content.shiftBody2}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <BurgundyBreak heading={content.burgundyQuote} />
+
+  <!-- How We Execute -->
+  <section class="section-pad">
+    <div class="container split-section">
+      <div class="sticky-side">
+        <div class="editorial-heading">
+          {content.promiseLabel}
+          <span set:html={content.promiseHeading.replace(' ', '<br>')} />
+        </div>
+      </div>
+      <div class="scroll-side">
+        {content.pillars.map((pillar) => (
+          <div class="philosophy-block">
+            <h3>{pillar.number} {pillar.title}</h3>
+            {pillar.quote && <div class="quote-callout">{pillar.quote}</div>}
+            <p>{pillar.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

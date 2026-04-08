@@ -1,0 +1,49 @@
+---
+interface Props {
+  activeNav?: string;
+}
+const { activeNav } = Astro.props;
+---
+
+<nav>
+  <a href="/" class="logo">Wellstead.</a>
+  <div class="nav-links">
+    <a href="/services/" class={activeNav === 'services' ? 'active' : ''}>Services</a>
+    <a href="/philosophy/" class={activeNav === 'philosophy' ? 'active' : ''}>Philosophy</a>
+    <a href="/work/" class={activeNav === 'work' ? 'active' : ''}>Our Work</a>
+  </div>
+  <a
+    href="/contact/"
+    class="btn-sleek"
+    style={`padding: 12px 24px;${activeNav === 'contact' ? ' background-color: var(--text-dark); color: var(--bg-light-grey);' : ''}`}
+  >
+    Get In Touch
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/services/" class={activeNav === 'services' ? 'active' : ''}>Services</a>
+  <a href="/philosophy/" class={activeNav === 'philosophy' ? 'active' : ''}>Philosophy</a>
+  <a href="/work/" class={activeNav === 'work' ? 'active' : ''}>Our Work</a>
+  <a href="/contact/" class="mobile-cta">Get In Touch</a>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu?.classList.toggle('open');
+    document.body.style.overflow = mobileMenu?.classList.contains('open') ? 'hidden' : '';
+  });
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger?.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

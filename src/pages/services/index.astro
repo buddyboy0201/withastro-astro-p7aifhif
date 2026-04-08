@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import Marquee from '../../components/Marquee.astro';
+import BurgundyBreak from '../../components/BurgundyBreak.astro';
+import content from '../../content/pages/services.json';
+---
+
+<BaseLayout
+  title="Our Capabilities"
+  description="Explore the 7 core pillars of Growth Marketing, Public Relations, and Lead Generation engineered by Wellstead Marketing."
+  activeNav="services"
+>
+  <Hero subtitle={content.heroSubtitle} title={content.heroTitle} />
+
+  <Marquee text={content.marqueeText} />
+
+  <section class="section-pad">
+    <div class="container">
+
+      <!-- Intro Split -->
+      <div style="display: flex; gap: 100px; margin-bottom: 100px;">
+        <div style="width: 35%;">
+          <div class="editorial-heading">
+            {content.introLabel}
+            <span set:html={content.introHeading.replace(' ', '<br>')} />
+          </div>
+        </div>
+        <div style="width: 65%;">
+          <p style="font-size: 1.5rem; color: var(--primary-green); font-weight: 300;">
+            {content.introBody}
+          </p>
+        </div>
+      </div>
+
+      <!-- Services Detail Rows -->
+      {content.services.map((service) => (
+        <div class="service-detail-row" id={service.id}>
+          <div class="service-header-side">
+            <span class="service-large-num">{service.number}</span>
+            <h2 class="service-large-title">{service.title}</h2>
+          </div>
+          <div class="service-content-side">
+            <p>{service.body}</p>
+            <ul class="capabilities-list">
+              {service.capabilities.map((cap) => (
+                <li>{cap}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </section>
+
+  <BurgundyBreak
+    heading={content.burgundyHeading}
+    buttonText="Book A Strategy Call"
+    buttonUrl="/contact/"
+  />
+</BaseLayout>
