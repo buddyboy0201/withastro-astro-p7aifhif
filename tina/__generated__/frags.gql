@@ -1,0 +1,84 @@
+fragment HomepageParts on Homepage {
+  __typename
+  heroSubtitle
+  heroTitle
+  heroButtonText
+  introLabel
+  introHeading
+  introBody1
+  introBody2
+  burgundyHeading
+  servicesLabel
+  servicesHeading
+  servicesSubtext
+  marqueeText
+}
+
+fragment PhilosophyParts on Philosophy {
+  __typename
+  heroSubtitle
+  heroTitle
+  marqueeText
+  shiftLabel
+  shiftHeading
+  shiftLead
+  shiftBody1
+  shiftBody2
+  burgundyQuote
+  promiseLabel
+  promiseHeading
+  pillars {
+    __typename
+    number
+    title
+    body
+    quote
+  }
+}
+
+fragment ServicesParts on Services {
+  __typename
+  heroSubtitle
+  heroTitle
+  marqueeText
+  introLabel
+  introHeading
+  introBody
+  burgundyHeading
+  services {
+    __typename
+    id
+    number
+    title
+    body
+    capabilities
+  }
+}
+
+fragment ContactParts on Contact {
+  __typename
+  heroSubtitle
+  heroTitle
+  marqueeText
+  introLabel
+  introHeading
+  introBody
+  email
+  phone
+  location
+}
+
+fragment WorkParts on Work {
+  __typename
+  clientName
+  industry
+  heroImage
+  setupHeading
+  setupBody
+  catalystHeading
+  catalystBody
+  resolutionHeading
+  resolutionBody
+  impactStatement
+  published
+}
